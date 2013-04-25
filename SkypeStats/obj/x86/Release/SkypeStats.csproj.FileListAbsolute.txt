@@ -1,0 +1,4 @@
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Release\SkypeStats.Properties.Resources.resources
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Release\SkypeStats.SkypeStats.resources
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Release\SkypeStats.DailyControl.resources
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Release\SkypeStats.csproj.GenerateResource.Cache

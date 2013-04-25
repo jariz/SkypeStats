@@ -1,0 +1,13 @@
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\bin\Debug\SkypeStats.exe
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\bin\Debug\SkypeStats.pdb
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\bin\Debug\JariZ.Log.dll
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\bin\Debug\Microsoft.WindowsAPICodePack.dll
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\bin\Debug\JariZ.Log.pdb
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Debug\SkypeStats.csprojResolveAssemblyReference.cache
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Debug\SkypeStats.Properties.Resources.resources
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Debug\SkypeStats.csproj.GenerateResource.Cache
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Debug\SkypeStats.exe
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Debug\SkypeStats.pdb
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\bin\Debug\System.Data.SQLite.dll
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Debug\SkypeStats.SkypeStats.resources
+C:\Users\JariZ\Dropbox\C#\SkypeStats\SkypeStats\obj\x86\Debug\SkypeStats.DailyControl.resources
