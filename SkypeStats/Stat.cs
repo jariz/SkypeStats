@@ -10,7 +10,22 @@ namespace SkypeStats
 {
     class Stat
     {
-        public virtual void RunStep(DataRow Row)
+        public virtual void RunMessageStep(DataRow Row)
+        {
+
+        }
+
+        public virtual void RunConversationStep(DataRow Row)
+        {
+
+        }
+
+        public virtual void RunContactStep(DataRow Row)
+        {
+
+        }
+
+        public virtual void Init()
         {
 
         }
@@ -43,7 +58,17 @@ namespace SkypeStats
             }
         }
 
-        public virtual string[] RequiredColumns()
+        public virtual string[] RequiredMessageColumns()
+        {
+            return new string[] { };
+        }
+
+        public virtual string[] RequiredConversationColumns()
+        {
+            return new string[] { };
+        }
+
+        public virtual string[] RequiredContactColumns()
         {
             return new string[] { };
         }

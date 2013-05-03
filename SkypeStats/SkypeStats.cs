@@ -27,7 +27,12 @@ namespace SkypeStats
             ClearHolder();
 
             if (RenderedStats.Count > index)
-                StatHolder.Controls.Add(RenderedStats[index]);
+            {
+                Control RenderedStat = RenderedStats[index];
+                //force fill
+                RenderedStat.Dock = DockStyle.Fill;
+                StatHolder.Controls.Add(RenderedStat);
+            }
             else TaskDialog.Show("Invalid index specified", "Something went wrong while getting this stat's content", "Woops");
         }
 

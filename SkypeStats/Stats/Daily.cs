@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Data;
+using SkypeStats.Stats.Controls;
 
 namespace SkypeStats.Stats
 {
@@ -13,7 +14,7 @@ namespace SkypeStats.Stats
         {
             get
             {
-                return "Messages daily";
+                return "Messages in/out";
             }
         }
 
@@ -25,27 +26,38 @@ namespace SkypeStats.Stats
             }
         }
 
-        OrderedDictionary daily = new OrderedDictionary();
+        OrderedDictionary _in = new OrderedDictionary();
+        OrderedDictionary _out = new OrderedDictionary();
 
-        public override void RunStep(DataRow Row)
+        public override void RunMessageStep(DataRow Row)
         {
             DateTime timestamp = Core.Epoch.AddSeconds(Convert.ToInt32(Row["timestamp"]));
-            if (daily.Contains(timestamp.Date))
-                daily[timestamp.Date] = ((int)daily[timestamp.Date]) + 1;
-            else daily.Add(timestamp.Date, 1);
+            // determine if in/out
+            if ((string)Row["author"] == Core.Account)
+            {
+                if (_out.Contains(timestamp.Date))
+                    _out[timestamp.Date] = ((int)_out[timestamp.Date]) + 1;
+                else _out.Add(timestamp.Date, 1);
+            }
+            else
+            {
+                if (_in.Contains(timestamp.Date))
+                    _in[timestamp.Date] = ((int)_in[timestamp.Date]) + 1;
+                else _in.Add(timestamp.Date, 1);
+            }
             
 
             //JBox.Out.WriteLine(timestamp.ToLongDateString() + " " + timestamp.ToLongTimeString());
         }
 
-        public override string[] RequiredColumns()
+        public override string[] RequiredMessageColumns()
         {
-            return new string[] { "timestamp" };
+            return new string[] { "timestamp", "author" };
         }
 
         public override System.Windows.Forms.Control Render(int w, int h)
         {
-            return new DailyControl(daily, w, h);
+            return new DailyControl(_in, _out, w, h);
         }
     }
 }

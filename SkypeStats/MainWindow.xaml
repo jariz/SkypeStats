@@ -1,0 +1,15 @@
+﻿<Window x:Class="SkypeStats.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="536" Width="861" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True" WindowStartupLocation="CenterScreen" Background="#00000000">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/SkypeStats;component/Images/splash.png" />
+        </Grid.Background>
+        <ProgressBar Height="18" HorizontalAlignment="Left" Margin="12,436,0,0" Name="progressBar1" VerticalAlignment="Top" Width="326" Value="43" Foreground="#FF0000E7" IsIndeterminate="True" />
+        <Label Content="SkypeStats" Height="105" HorizontalAlignment="Left" Margin="12,291,0,0" Name="label1" VerticalAlignment="Top" FontSize="64" Width="326" />
+        <Label Content="V1.0.0.0" Height="28" HorizontalAlignment="Left" Margin="271,360,0,0" Name="label2" VerticalAlignment="Top" />
+        <Label Content="Label" Height="28" HorizontalAlignment="Left" Margin="8,412,0,0" Name="status" VerticalAlignment="Top" Foreground="#AD000000" />
+    </Grid>
+    
+</Window>

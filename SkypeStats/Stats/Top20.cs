@@ -6,23 +6,46 @@ using System.Data;
 using System.Data.SQLite;
 using System.Collections;
 using System.Windows.Forms;
+using SkypeStats.Stats.Controls;
 
 namespace SkypeStats.Stats
 {
     class Top20 : Stat
     {
-        public Dictionary<string, int> Scoreboard = new Dictionary<string, int>();
 
-        public override void RunStep(DataRow Row)
+        Dictionary<int, string> /* id, identity */ Convos = new Dictionary<int, string>();
+        Dictionary<int, int> /* id, messages */ In;
+        Dictionary<int, int> /* id, messages */ Out;
+
+        public override void RunMessageStep(DataRow Row)
         {
-            if (!Scoreboard.ContainsKey((string)Row["author"]))
-                Scoreboard.Add((string)Row["author"], 1);
-            else Scoreboard[(string)Row["author"]] += 1;
+
+            if (In == null && Out == null)
+            {
+                In = new Dictionary<int, int>();
+                Out = new Dictionary<int, int>();
+                foreach (KeyValuePair<int, string> item in Convos)
+                {
+                    In.Add(item.Key, 0);
+                    Out.Add(item.Key, 0);
+                }
+            }
+
+            int cid = Convert.ToInt32(Row["convo_id"]);
+
+            if ((string)Row["author"] == Core.Account && Out.ContainsKey(cid))
+                Out[cid] += 1;
+            else if (Out.ContainsKey(cid)) In[cid] += 1;
+        }
+
+        public override void RunConversationStep(DataRow Row)
+        {
+            Convos.Add(Convert.ToInt32(Row["id"]), (string)Row["identity"]);
         }
 
         public override Control Render(int w, int h)
         {
-            return base.Render(w, h);
+            return new Top20Control(Convos, In, Out);
         }
 
         public override string Name
@@ -41,9 +64,14 @@ namespace SkypeStats.Stats
             }
         }
 
-        public override string[] RequiredColumns()
+        public override string[] RequiredMessageColumns()
         {
-            return new string[] { "author" };
+            return new string[] { "author", "convo_id" };
+        }
+
+        public override string[] RequiredConversationColumns()
+        {
+            return new string[] { "id", "identity" };
         }
     }
 }

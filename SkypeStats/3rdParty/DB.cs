@@ -14,8 +14,11 @@ class DB
     /// <param name="inputFile">The File containing the DB</param>
     public DB(String dbFile)
     {
-        dbConnection = string.Format("Data Source={0}; Version=3; Read Only=True;", dbFile);
-
+        if(SkypeStats.Core.MaxedOutMode == false)
+            dbConnection = string.Format("Data Source={0}; Version=3; Read Only=True; ", dbFile);
+            //holy christ
+        else dbConnection = string.Format("Data Source={0}; Version=3; Read Only=True; Page Size=10240; Cache Size="+int.MaxValue, dbFile);
+            
         //test connection
         SQLiteConnection cnn = new SQLiteConnection(dbConnection);
         cnn.Open();
